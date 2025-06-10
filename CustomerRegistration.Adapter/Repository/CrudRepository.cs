@@ -1,31 +1,33 @@
-﻿using CustomerRegistration.Core.IRepository;
+﻿using CustomerRegistration.Adapter.Context;
+using CustomerRegistration.Core.IRepository;
+using Microsoft.EntityFrameworkCore;
 
 namespace CustomerRegistration.Adapter.Repository;
 
 public class CrudRepository<T> : ICrudRepository<T> where T : class
 {
-    public CrudRepository()
+    private readonly CustomerRegistrationDbContext _dbContext;
+    public DbSet<T> Entities { get; init; }
+    public CrudRepository(CustomerRegistrationDbContext dbContext)
     {
-        
+        Entities = dbContext.Set<T>();
     }
 
     public void Add(T entity)
     {
-        throw new NotImplementedException();
+        Entities.Add(entity);
+        _dbContext.SaveChanges();
     }
 
     public IEnumerable<T> GetAll()
     {
-        throw new NotImplementedException();
-    }
-
-    public T GetById(int id)
-    {
-        throw new NotImplementedException();
+        var entities = Entities.ToList();
+        return entities;
     }
 
     public void Update(T entity)
     {
-        throw new NotImplementedException();
+        Entities.Update(entity);
+        _dbContext.SaveChanges();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using CustomerRegistration.Core.Exception;
 using CustomerRegistration.Core.IRepository;
+using CustomerRegistration.Core.ValueObject;
 using CustomerRegistration.UseCase.Model;
 
 namespace CustomerRegistration.UseCase.Customer;
@@ -15,8 +16,10 @@ public class CustomerUseCase : ICustomerUseCase
 
     public void ChangeEmail(ChangeEmailRequest request)
     {
-        var customer = _customerRepository.GetByNationalCode(request.NationalCode) ?? throw new CustomException("Customer Doesn't exists");
-        
+        var nationalCode = NationalCode.Create(request.NationalCode);
+        var customer = _customerRepository.GetByNationalCode(nationalCode) ?? throw new CustomException("Customer Doesn't exists");
+        var email = Email.Create(request.NewEmail);
+        customer.ChangeEmail(email);
     }
 
     public void ChangePhoneNumber(ChangePhoneNumberRequest request)

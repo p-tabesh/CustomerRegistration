@@ -6,7 +6,8 @@ public class PhoneNumber
 
     private PhoneNumber(string value)
     {
-        Validate()
+        Validate(value);
+        Value = value;
     }
 
     public static PhoneNumber Create(string value)
