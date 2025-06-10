@@ -8,13 +8,13 @@ public class Email : BaseValueObject
         Value = value;
     }
 
-    public override BaseValueObject Create(string value)
+    public static Email Create(string value)
     {
         Email email = new(value);
         return email;
     }
 
-    public override void Validate(string value)
+    private void Validate(string value)
     {
         throw new NotImplementedException();
     }

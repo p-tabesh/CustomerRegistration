@@ -1,4 +1,6 @@
-﻿namespace CustomerRegistration.Core.ValueObject;
+﻿using CustomerRegistration.Core.Exception;
+
+namespace CustomerRegistration.Core.ValueObject;
 
 public class NationalCode : BaseValueObject
 {
@@ -7,13 +9,15 @@ public class NationalCode : BaseValueObject
         Validate(value);
         Value = value;
     }
-    public override BaseValueObject Create(string value)
+    public static NationalCode Create(string value)
     {
-        throw new NotImplementedException();
+        var nationalCode = new NationalCode(value);
+        return nationalCode;
     }
 
-    public override void Validate(string value)
+    private void Validate(string value)
     {
-        throw new NotImplementedException();
+        if (string.IsNullOrEmpty(value) || value.Length != 10)
+            throw new CustomException("Invalid NationalCode");
     }
 }

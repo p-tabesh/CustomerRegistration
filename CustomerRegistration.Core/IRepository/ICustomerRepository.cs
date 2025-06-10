@@ -1,4 +1,4 @@
-﻿using CustomerRegistration.UseCase.Entity;
+﻿using CustomerRegistration.Core.Entity;
 
 namespace CustomerRegistration.Core.IRepository;
 

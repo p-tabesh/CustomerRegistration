@@ -32,7 +32,4 @@ public abstract class BaseValueObject
     {
         return Value;
     }
-
-    public abstract void Validate(string value);
-    public abstract BaseValueObject Create(string value);
 }

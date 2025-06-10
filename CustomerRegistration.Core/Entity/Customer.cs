@@ -1,7 +1,7 @@
 ﻿using CustomerRegistration.Core.Exception;
 using CustomerRegistration.Core.ValueObject;
 
-namespace CustomerRegistration.UseCase.Entity;
+namespace CustomerRegistration.Core.Entity;
 
 public class Customer
 {
@@ -30,9 +30,9 @@ public class Customer
 
     }
 
-    public void ChangeEmail()
+    public void ChangeEmail(Email newEmail)
     {
-
+        Email = newEmail;
     }
 }
 
