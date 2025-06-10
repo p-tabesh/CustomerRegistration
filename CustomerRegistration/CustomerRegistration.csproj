@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CustomerRegistration.Adapter\CustomerRegistration.Adapter.csproj" />
+    <ProjectReference Include="..\CustomerRegistration.UseCase\CustomerRegistration.UseCase.csproj" />
+  </ItemGroup>
+
 </Project>
