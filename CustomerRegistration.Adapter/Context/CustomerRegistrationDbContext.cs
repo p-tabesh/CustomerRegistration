@@ -7,12 +7,15 @@ public class CustomerRegistrationDbContext : DbContext
 {
     public DbSet<Customer> Customer { get; set; }
 
+    public CustomerRegistrationDbContext() { }
+
     public CustomerRegistrationDbContext(DbContextOptions<CustomerRegistrationDbContext> options)
         : base(options) { }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        base.OnConfiguring(optionsBuilder);
+        if (!optionsBuilder.IsConfigured)
+            optionsBuilder.UseSqlite("Data Source=customerdb.db");
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

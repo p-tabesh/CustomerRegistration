@@ -4,6 +4,10 @@ namespace CustomerRegistration.Core.ValueObject;
 
 public class NationalCode : BaseValueObject
 {
+    private NationalCode()
+    {
+        
+    }
     private NationalCode(string value)
     {
         Validate(value);
@@ -18,6 +22,6 @@ public class NationalCode : BaseValueObject
     private void Validate(string value)
     {
         if (string.IsNullOrEmpty(value) || value.Length != 10)
-            throw new CustomException("Invalid NationalCode");
+            throw new ArgumentException("Invalid NationalCode");
     }
 }

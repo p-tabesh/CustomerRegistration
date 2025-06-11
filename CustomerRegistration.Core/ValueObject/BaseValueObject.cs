@@ -2,7 +2,7 @@
 
 public abstract class BaseValueObject
 {
-    public string Value { get; protected set; }
+    public virtual string Value { get; protected set; }
 
     public override bool Equals(object? obj)
     {

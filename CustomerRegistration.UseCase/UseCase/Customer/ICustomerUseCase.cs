@@ -4,12 +4,12 @@ namespace CustomerRegistration.UseCase.Customer;
 
 public interface ICustomerUseCase
 {
-    void Register(RegistrationRequest request);
+    int Register(RegistrationRequest request);
     void ChangePhoneNumber(ChangePhoneNumberRequest request);
     void ChangeEmail(ChangeEmailRequest request);
 
-    IEnumerable<Core.Entity.Customer> GetAllCustomers();
-    Core.Entity.Customer GetCustomerById(int id);
-    Core.Entity.Customer GetCustomerByNationalCode(string nationalCode);
-    Core.Entity.Customer GetCustomerByPhoneNumber(string phoneNumber);
+    IEnumerable<CustomerViewModel> GetAllCustomers();
+    CustomerViewModel GetCustomerById(int id);
+    CustomerViewModel GetCustomerByNationalCode(string nationalCode);
+    CustomerViewModel GetCustomerByPhoneNumber(string phoneNumber);
 }

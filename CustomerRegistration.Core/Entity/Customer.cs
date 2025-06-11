@@ -25,9 +25,9 @@ public class Customer
         RegisterDate = DateTime.Now;
     }
 
-    public void ChangePhoneNumber()
+    public void ChangePhoneNumber(PhoneNumber newPhoneNumber)
     {
-
+        PhoneNumber = newPhoneNumber;
     }
 
     public void ChangeEmail(Email newEmail)

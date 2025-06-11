@@ -22,6 +22,12 @@ public class CustomerRepository : CrudRepository<Customer>, ICustomerRepository
         return customer;
     }
 
+    public Customer GetByNationalCodeAndPhoneNumber(NationalCode nationalCode, PhoneNumber phoneNumber)
+    {
+        var customer = Entities.FirstOrDefault(c => c.NationalCode == nationalCode && c.PhoneNumber == phoneNumber);
+        return customer;
+    }
+
     public Customer GetByPhoneNumber(PhoneNumber phoneNumber)
     {
         var customer = Entities.FirstOrDefault(c => c.PhoneNumber == phoneNumber);

@@ -1,7 +1,13 @@
-﻿namespace CustomerRegistration.Core.ValueObject;
+﻿using System.Text.RegularExpressions;
+
+namespace CustomerRegistration.Core.ValueObject;
 
 public class Email : BaseValueObject
 {
+    private Email()
+    {
+        
+    }
     private Email(string value)
     {
         Validate(value);
@@ -10,12 +16,13 @@ public class Email : BaseValueObject
 
     public static Email Create(string value)
     {
-        Email email = new(value);
+        var email = new Email(value);
         return email;
     }
 
     private void Validate(string value)
     {
-        throw new NotImplementedException();
+        if (!Regex.IsMatch(value, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            throw new ArgumentException("Invalid email");
     }
 }

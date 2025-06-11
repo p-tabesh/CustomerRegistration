@@ -11,6 +11,7 @@ public class CrudRepository<T> : ICrudRepository<T> where T : class
     public CrudRepository(CustomerRegistrationDbContext dbContext)
     {
         Entities = dbContext.Set<T>();
+        _dbContext = dbContext;
     }
 
     public void Add(T entity)
@@ -29,5 +30,11 @@ public class CrudRepository<T> : ICrudRepository<T> where T : class
     {
         Entities.Update(entity);
         _dbContext.SaveChanges();
+    }
+
+    public T GetById(int id)
+    {
+        var entity = Entities.Find(id);
+        return entity;
     }
 }

@@ -3,6 +3,10 @@
 public class PhoneNumber
 {
     public string Value { get; private set; }
+    private PhoneNumber()
+    {
+        
+    }
 
     private PhoneNumber(string value)
     {
@@ -18,7 +22,7 @@ public class PhoneNumber
 
     private void Validate(string value)
     {
-        if (string.IsNullOrEmpty(Value) || !value.StartsWith("09") || value.Length != 11)
+        if (string.IsNullOrEmpty(value) || !value.StartsWith("09") || value.Length != 11)
             throw new ArgumentException("Invalid Phone Number");
     }
 }

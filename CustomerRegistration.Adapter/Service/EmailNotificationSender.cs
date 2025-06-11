@@ -5,7 +5,7 @@ namespace CustomerRegistration.Adapter.Service
 {
     public class EmailNotificationSender : INotificationSender
     {
-        public EmailNotificationSender(IOptions<EmailConfiguration> configuration)
+        public EmailNotificationSender()
         {
 
         }
