@@ -1,6 +1,4 @@
-﻿using CustomerRegistration.Core.Entity;
-
-namespace CustomerRegistration.UseCase.Model;
+﻿namespace CustomerRegistration.UseCase.Model;
 
 public record CustomerViewModel(int Id, string FullName, string NationalCode, string PhoneNumber, string Email)
 {
@@ -21,5 +19,10 @@ public record CustomerViewModel(int Id, string FullName, string NationalCode, st
             models.Add(Parse(customer));
 
         return models;
+    }
+
+    public override string ToString()
+    {
+        return $"CustomerId: {Id}, Customer Title: {FullName}, NationalCode: {NationalCode}, PhoneNumber: {PhoneNumber}, Email: {Email}";
     }
 };

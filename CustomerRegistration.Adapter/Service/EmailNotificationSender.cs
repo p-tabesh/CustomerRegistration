@@ -10,9 +10,9 @@ namespace CustomerRegistration.Adapter.Service
 
         }
 
-        public async Task Notify(string identification)
+        public async Task Notify(string email)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Sending Email to: {email}");
         }
     }
 }
