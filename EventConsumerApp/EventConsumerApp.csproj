@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CustomerRegistration.Core\CustomerRegistration.Core.csproj" />
+    <ProjectReference Include="..\CustomerRegistration.Kafka.Producer\CustomerRegistration.KafkaPackage.csproj" />
+    <ProjectReference Include="..\CustomerRegistration.UseCase\CustomerRegistration.UseCase.csproj" />
+  </ItemGroup>
+
+</Project>
